@@ -15,6 +15,8 @@
 ## About The Project
 FastColabCopy is a Python script for parallel (multi-threading) copying of files between two locations. Currently developed for Google-Drive to Google-Colab transfers where copying numerous small files can take a long time. This script achieves 10-50x speed improvements.
 
+My last test. 52 PDF files (540mb total). `RSync|1:46` | `FastColabCopy|0:04` so.. almost 27x faster
+
 
 ## Getting Started
 To copy files on Colab, you will need to have google drive mounted and FastColabCopy imported 
