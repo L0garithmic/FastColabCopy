@@ -60,9 +60,14 @@ The `source` and `destination` fields are required. Everything else is optional.
 from google.colab import drive
 drive.mount('/gdrive', force_remount=False)
 import os
-!wget https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
+!wget -q https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
 import fastcopy
 !python fastcopy.py /gdrive/Shareddrives/SourceDrive/. /gdrive/Shareddrives/DestDrive --sync
+```
+If you want to see copy execution time
+```
+!pip install -q ipython-autotime
+%load_ext autotime
 ```
 
 
