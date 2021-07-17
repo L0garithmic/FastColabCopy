@@ -54,6 +54,8 @@ optional arguments:
   -d --delete           delete the source files after copy
   -s --sync             remove files from destination if they do not exist in source
   -r --replace          replace files if they exist
+  -t --thread           set the amount of parallel  threads used
+  -l --size-limit       set max size of files copied (supports gb, mb, kb) eg 1.5gb
 ```
 The `source` and `destination` fields are required. Everything else is optional.
 
@@ -74,4 +76,4 @@ If you want to see copy execution time
 
 
 Credit to [ikonikon](https://github.com/ikonikon/fast-copy) for the base multi-threading code.   
-Thanks to [@Ostokhoon](https://www.freelancer.com/u/Ostokhoon) for the -d, -s, -r and folder hierarchy functionality.
+Thanks to [@Ostokhoon](https://www.freelancer.com/u/Ostokhoon) for ALL argument and folder hierarchy functionality.
