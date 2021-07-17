@@ -65,7 +65,7 @@ Check out examples.md for some full scale file copy examples.
 ## Testing Results
 Colab has wildly varying transfer speeds, because of this, the best we can offer are suggestions.
 - For large groups of medium/small files, 15-40 threads seems to work best.
-- For 50+ files with significantly varying sizes. Try 2 sequentially copies. `-t 15 -l 200` then `-t 2`
+- For 50+ files with significantly varying sizes. Try 2 sequentially copies. `-t 15 -l 350` then `-t 2`
 - Files that are hundred MB's and over, it is best to use 2 threads, it is is still faster then rsync.   
 
 ## Credits
