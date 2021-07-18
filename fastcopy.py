@@ -1,10 +1,11 @@
 import argparse
 import shutil
+import subprocess
 import threading
 from pathlib import Path
 from queue import Queue
 from typing import List
-
+from traceback import print_exc
 from tqdm import tqdm
 
 
@@ -105,6 +106,7 @@ class FastCopy:
         if len(file_list) == 0:
             print('no file to copy')
             return
+        self.process = subprocess.Popen('/bin/bash')
         self.dispatch_workers(file_list)
 
     def single_copy(self):
@@ -114,7 +116,11 @@ class FastCopy:
             if self.replace:
                 dest_path.unlink(missing_ok=True)
             if not dest_path.exists():
-                shutil.copy(file, str(dest_path.parent), follow_symlinks=False)
+                try:
+                    shutil.copy(file, str(dest_path.parent), follow_symlinks=False)
+                except:
+                    print(f'Couldn\'t copy "{file}"')
+                    print_exc()
             if self.delete:
                 file.unlink()
             self.file_queue.task_done()
