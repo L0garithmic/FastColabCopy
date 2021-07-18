@@ -1,6 +1,5 @@
 import argparse
 import shutil
-import subprocess
 import threading
 from pathlib import Path
 from queue import Queue
@@ -106,7 +105,6 @@ class FastCopy:
         if len(file_list) == 0:
             print('no file to copy')
             return
-        self.process = subprocess.Popen('/bin/bash')
         self.dispatch_workers(file_list)
 
     def single_copy(self):
