@@ -66,20 +66,21 @@ drive.mount('/gdrive', force_remount=False)
 import os
 !wget -q https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
 import fastcopy
-!python fastcopy.py /gdrive/Shareddrives/SourceDrive/. /gdrive/Shareddrives/DestDrive --sync
+!python fastcopy.py /gdrive/Shareddrives/Source/. /gdrive/Shareddrives/Destination --thread 20 --size-limit 400mb
 ```
 If you want to see copy execution time
 ```mod
 !pip install -q ipython-autotime
 %load_ext autotime
 ```
-Check out examples.md for some full scale file copy examples.
+Check out `examples.md` for some more examples.
 
 ## Best Practice
 Colab has wildly varying transfer speeds, because of this, the best we can offer are suggestions.
 - For large groups of medium/small files, 15-40 threads seems to work best.
-- For 50+ files with significantly varying sizes. Try 2 sequentially copies. `-t 15 -l 350` then `-t 2`
+- For 50+ files with significantly varying sizes. Try 2 sequentially copies. `-t 15 -l 400` then `-t 2`
 - Files that are hundred MB's and over, it is best to use 2 threads, it is is still faster then rsync.   
+- Currently `--sync` breaks if rsync is ran after. If you are mirroring drives. Disable `--sync` and use the rsync's `--delete` function
 
 ## Credits
 Credit to [ikonikon](https://github.com/ikonikon/fast-copy) for the base multi-threading code.   
