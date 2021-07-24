@@ -16,8 +16,8 @@
   <a href="about-the-projects">About The Project</a> •
   <a href="#usage">How To Use</a> •
   <a href="#examples">Examples</a> •
-  <a href="#credits">Credits</a> •
   <a href="#best-practice">Best Practice</a> •
+  <a href="#credits">Credits</a> •
   <a href="examples.md">More Examples</a>
 </p>  
 
