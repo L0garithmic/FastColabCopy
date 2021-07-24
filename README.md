@@ -13,7 +13,7 @@
     </p>
 </p>
 <p align="center">
-  <a href="about-the-projects">About The Project</a> •
+  <a href="#about-the-project">About The Project</a> •
   <a href="#usage">How To Use</a> •
   <a href="#examples">Examples</a> •
   <a href="#best-practice">Best Practice</a> •
@@ -27,17 +27,17 @@
 </p>                                                                                                                             
                                                                                                                                                       
 ## About The Project
-FastColabCopy is a Python script for parallel (multi-threading) copying of files between two locations. Currently developed for Gooele-Drive to Google-Drive transfers using Google-Colab. This script frequently achieves 10-50x speed improvements when copying numerous small files.
+FastColabCopy is a Python script for parallel (multi-threading) copying of files between two locations. Currently developed for Google-Drive to Google-Drive transfers using Google-Colab. This script frequently achieves 10-50x speed improvements when copying numerous small files.
 
 ## Importing
 
-Import from GitHub.   
+Import from GitHub:
 ```py
 !wget https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
 import fastcopy
 ```
 
-Import from Google Drive
+Import from Google Drive:
 ```py
 !cp /gdrive/MyDrive/fastcopy.py .
 import fastcopy
@@ -51,11 +51,11 @@ usage: fast-copy.py [-h HELP] source destination [-d DELETE] [-s SYNC] [-r REPLA
 optional arguments:
   -h, --help            show this help message and exit
   source                the drive you are copying from
-  destination           the drive you are copying too
+  destination           the drive you are copying to
   -d --delete           delete the source files after copy
-  -s --sync             delete files in destination if not found in source (dont use if using with rsync)
+  -s --sync             delete files in destination if not found in source (don't use if using with rsync)
   -r --replace          replace files if they exist
-  -t --thread           set the amount of parallel  threads used
+  -t --thread           set the amount of parallel threads used
   -l --size-limit       set max size of files copied (supports gb, mb, kb) eg 1.5gb
 ```
 The `source` and `destination` fields are required. Everything else is optional.
@@ -69,7 +69,7 @@ import os
 import fastcopy
 !python fastcopy.py /gdrive/Shareddrives/Source/. /gdrive/Shareddrives/Destination --thread 20 --size-limit 400mb
 ```
-If you want to see copy execution time
+If you want to see copy execution time:
 ```mod
 !pip install -q ipython-autotime
 %load_ext autotime
@@ -77,12 +77,12 @@ If you want to see copy execution time
 Check out <a href="examples.md">examples.md</a> for some more examples.
 
 ## Best Practice
-Colab has wildly varying transfer speeds, because of this, the best we can offer are suggestions.
+Colab has wildly varying transfer speeds, because of this, the best we can offer are suggestions:
 - For large groups of medium/small files, 15-40 threads seems to work best.
-- For 50+ files with significantly varying sizes. Try 2 sequentially copies. `-t 15 -l 400` then `-t 2`
-- Files that are hundred MB's and over, it is best to use 2 threads, it is is still faster then rsync.   
-- Currently `--sync` breaks if rsync is ran after. If you are mirroring drives. Disable `--sync` and use the rsync's `--delete` function
+- For 50+ files with significantly varying sizes, try 2 sequentially copies. `-t 15 -l 400` then `-t 2`
+- For files that are 100MB+, it is best to use 2 threads. It is still faster then rsync.   
+- Currently `--sync` breaks if rsync is ran after. If you are mirroring drives. Disable `--sync` and use the rsync's `--delete` function.
 
 ## Credits
-Credit to [ikonikon](https://github.com/ikonikon/fast-copy) for the base multi-threading code.   
-Thanks to [@Ostokhoon](https://www.freelancer.com/u/Ostokhoon) for ALL argument and folder hierarchy functionality.
+- Credit to [ikonikon](https://github.com/ikonikon/fast-copy) for the base multi-threading code.   
+- Thanks to [@Ostokhoon](https://www.freelancer.com/u/Ostokhoon) for ALL argument and folder hierarchy functionality.
