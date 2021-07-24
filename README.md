@@ -46,14 +46,14 @@ import fastcopy
 
 ## Usage
 ```sh
-usage: fast-copy.py [-h HELP] source destination [-d DELETE] [-s SYNC] [-r REPLACE ]
+usage: fast-copy.py [-h HELP] source destination [-d DELETE] [-s SYNC] [-r REPLACE]
 
 optional arguments:
-  -h, --help            show this help message and exit
+  -h --help            show this help message and exit
   source                the drive you are copying from
   destination           the drive you are copying to
   -d --delete           delete the source files after copy
-  -s --sync             delete files in destination if not found in source (don't use if using with rsync)
+  -s --sync             delete files in destination if not found in source (do not use, if using with rsync)
   -r --replace          replace files if they exist
   -t --thread           set the amount of parallel threads used
   -l --size-limit       set max size of files copied (supports gb, mb, kb) eg 1.5gb
