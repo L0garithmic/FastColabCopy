@@ -8,7 +8,7 @@
   <br>FastColabCopy
 </h1>
   <p align="center">
-    Python3 script transfer files in Google Colab 10-50x faster.
+    Python3 script to transfer files in Google Colab 10-50x faster.
     <br />
     </p>
 </p>
