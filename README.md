@@ -74,7 +74,7 @@ If you want to see copy execution time
 !pip install -q ipython-autotime
 %load_ext autotime
 ```
-Check out `examples.md` for some more examples.
+Check out <a href="examples.md">examples.md</a> for some more examples.
 
 ## Best Practice
 Colab has wildly varying transfer speeds, because of this, the best we can offer are suggestions.
