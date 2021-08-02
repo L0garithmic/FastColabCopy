@@ -115,7 +115,7 @@ class FastCopy:
                 dest_path.unlink(missing_ok=True)
             if not dest_path.exists():
                 try:
-                    shutil.copy(file, str(dest_path.parent), follow_symlinks=False)
+                    shutil.copy2(file, str(dest_path.parent), follow_symlinks=False)
                 except:
                     print(f'Couldn\'t copy "{file}"')
                     print_exc()
