@@ -3,18 +3,20 @@
 ```py
 #@markdown <center><h5>Mount/Prerequisites</h5></center>
 
-#load timer and fastcopy
-print('\n''--Installing Prerequisites--')
-!pip install -q ipython-autotime
-%load_ext autotime
-!wget -q https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
-import fastcopy
-
 #mount drive
 print('\n''--Mounting Drive--')
 from google.colab import drive
 drive.mount('/gdrive', force_remount=False)
 import os
+
+#load timer and fastcopy
+print('\n''--Installing Prerequisites--')
+print('AutoTime')
+print('FastColabCopy')
+!pip install -q ipython-autotime
+%load_ext autotime
+!wget -q https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
+import fastcopy
 
 #list drives
 print('\n''--Available Drives--')
@@ -26,13 +28,16 @@ Mirror drives, input for source and dest. Splits the process up.
 ```py
 sourcedrive = "LargeFiles4" #@param {type:"string"}
 destdrive = "LargeFilesShare" #@param {type:"string"}
+#@markdown <center><h7>Note: Do NOT use for copying partial folders</h7></center>
 
+print('\n''--Delete Old Files--')
+!rsync -r --progress --size-only --delete --existing --ignore-existing  /gdrive/Shareddrives/$sourcedrive/. /gdrive/Shareddrives/$destdrive
 print('\n''--Small Files--')
 !python fastcopy.py "/gdrive/Shareddrives/$sourcedrive/". "/gdrive/Shareddrives/$destdrive" --thread 20 --size-limit 400mb
 print('\n''--Medium Files--')
 !python fastcopy.py "/gdrive/Shareddrives/$sourcedrive/". "/gdrive/Shareddrives/$destdrive" --thread 3 --size-limit 600mb
 print('\n''--Large Files--')
-!rsync -r -h --info=progress2 --update "/gdrive/Shareddrives/$sourcedrive/". "/gdrive/Shareddrives/$destdrive" --delete
+!rsync -r -v --size-only --progress /gdrive/Shareddrives/$sourcedrive/. /gdrive/Shareddrives/$destdrive --delete
 ```
 
 
