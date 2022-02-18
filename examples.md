@@ -26,8 +26,8 @@ print('\n')
 
 Mirror drives, input for source and dest. Splits the process up.
 ```py
-sourcedrive = "LargeFiles4" #@param {type:"string"}
-destdrive = "LargeFilesShare" #@param {type:"string"}
+sourcedrive = "Source" #@param {type:"string"}
+destdrive = "Destination" #@param {type:"string"}
 #@markdown <center><h7>Note: Do NOT use for copying partial folders</h7></center>
 
 print('\n''--Delete Old Files--')
